@@ -5,11 +5,19 @@ import DataLayer.User;
 import Enums.LoginType;
 import Enums.UserType;
 import LoginProcess.LoginProcess;
+import java.io.Serializable;
+import javax.enterprise.context.*;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named; 
 
-@ManagedBean
-public class LoginBean {
+@Named("loginBean")
+@SessionScoped
+public class LoginBean implements Serializable{
+    
+    public String yyy(){
+        System.out.println("dddd");
+        return "5";
+    }
 
     public LoginBean(){
         this.loginProcess = new LoginProcess();
@@ -24,7 +32,7 @@ public class LoginBean {
     private String name;
     private UserType userType;
     private String password;
-    private String email;
+    private String email= " hhhhh    ";
     private LoginType loginType;
 
     public void onSubmit(){
@@ -37,6 +45,13 @@ public class LoginBean {
     }
 
 
+    public String getEmail(){
+        return this.email;
+    }
+    
+    public void setEmail(String email){
+        this.email = email;
+    }
 
 
 }
